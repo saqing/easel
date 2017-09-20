@@ -1,6 +1,9 @@
 <?php
 
-$factory->define(Canvas\Models\Post::class, function () {
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+use Canvas\Models\Post;
+
+$factory->define(Post::class, function () {
     return [
         'title'             => 'Hello World',
         'slug'              => 'hello-world',

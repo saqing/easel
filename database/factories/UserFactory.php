@@ -1,6 +1,9 @@
 <?php
 
-$factory->define(Canvas\Models\User::class, function (Faker\Generator $faker) {
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+use Canvas\Models\User;
+
+$factory->define(User::class, function (Faker\Generator $faker) {
     return [
         'first_name'    => $first = $faker->firstName,
         'last_name'     => $last = $faker->lastName,
