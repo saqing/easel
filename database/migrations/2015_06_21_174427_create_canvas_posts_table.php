@@ -18,7 +18,7 @@ class CreateCanvasPostsTable extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('content_raw');
-            $table->text('content_html');
+            $table->longText('content_html');
             $table->string('page_image')->nullable();
             $table->string('meta_description')->nullable();
             $table->boolean('is_draft')->default(false);
