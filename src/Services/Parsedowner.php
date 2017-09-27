@@ -11,9 +11,9 @@ class Parsedowner
      *
      * @return $html
      */
-    public function toHTML($text)
+    public function toHTML($raw)
     {
-        $html = Parsedown::instance()->text($text);
+        $html = Parsedown::instance()->text($raw);
 
         return $html;
     }
