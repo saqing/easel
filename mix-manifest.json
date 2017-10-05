@@ -1,8 +1,8 @@
 {
-    "/public/assets/css/frontend.css": "/public/assets/css/frontend.css?id=4c3ce7a604f27902dde4",
-    "/public/assets/css/backend.css": "/public/assets/css/backend.css?id=af55e411c2b788e79a5c",
-    "/public/assets/css/media-manager.css": "/public/assets/css/media-manager.css?id=044f92f7924e587f4a54",
-    "/public/assets/js/frontend.js": "/public/assets/js/frontend.js?id=af31f02f724ecd5a3a09",
-    "/public/assets/js/vendor.js": "/public/assets/js/vendor.js?id=f3df3f9d176af41e5314",
-    "/public/assets/js/app.js": "/public/assets/js/app.js?id=7a0b3b3483aab565d92e"
+    "/public/assets/css/frontend.css": "/public/assets/css/frontend.css",
+    "/public/assets/css/backend.css": "/public/assets/css/backend.css",
+    "/public/assets/css/media-manager.css": "/public/assets/css/media-manager.css",
+    "/public/assets/js/frontend.js": "/public/assets/js/frontend.js",
+    "/public/assets/js/vendor.js": "/public/assets/js/vendor.js",
+    "/public/assets/js/app.js": "/public/assets/js/app.js"
 }
