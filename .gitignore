@@ -5,3 +5,4 @@ composer.phar
 composer.lock
 yarn.lock
 Thumbs.db
+node_modules
