@@ -1,6 +1,9 @@
 <?php
 
-$factory->define(Canvas\Models\Tag::class, function () {
+/** @var \Illuminate\Database\Eloquent\Factory $factory */
+use Canvas\Models\Tag;
+
+$factory->define(Tag::class, function () {
     return [
         'tag'               => 'Getting Started',
         'title'             => 'Getting Started',

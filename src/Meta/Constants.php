@@ -2,9 +2,6 @@
 
 namespace Canvas\Meta;
 
-/**
- * A home for global Canvas constants.
- */
 class Constants
 {
     /**

@@ -62,7 +62,7 @@ class TagController extends Controller
         $tag->fill($request->toArray())->save();
         $tag->save();
 
-        Session::set('_new-tag', trans('canvas::messages.create_success', ['entity' => 'tag']));
+        Session::put('_new-tag', trans('canvas::messages.create_success', ['entity' => 'tag']));
 
         return redirect()->route('canvas.admin.tag.index');
     }
@@ -99,7 +99,7 @@ class TagController extends Controller
         $tag->fill($request->toArray())->save();
         $tag->save();
 
-        Session::set('_update-tag', trans('canvas::messages.update_success', ['entity' => 'Tag']));
+        Session::put('_update-tag', trans('canvas::messages.update_success', ['entity' => 'Tag']));
 
         return redirect()->route('canvas.admin.tag.edit', $id);
     }
@@ -116,7 +116,7 @@ class TagController extends Controller
         $tag = Tag::findOrFail($id);
         $tag->delete();
 
-        Session::set('_delete-tag', trans('canvas::messages.delete_success', ['entity' => 'Tag']));
+        Session::put('_delete-tag', trans('canvas::messages.delete_success', ['entity' => 'Tag']));
 
         return redirect()->route('canvas.admin.tag.index');
     }

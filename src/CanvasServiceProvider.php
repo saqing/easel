@@ -196,10 +196,10 @@ class CanvasServiceProvider extends ServiceProvider
         $loader->alias('CanvasSetup', SetupHelper::class);
 
         // Register middleware...
-        $router->middleware('checkIfAdmin', CheckIfAdmin::class);
-        $router->middleware('canvasInstalled', EnsureInstalled::class);
-        $router->middleware('canvasNotInstalled', EnsureNotInstalled::class);
-        $router->middleware('checkForMaintenanceMode', CheckForMaintenanceMode::class);
+        $router->aliasMiddleware('checkIfAdmin', CheckIfAdmin::class);
+        $router->aliasMiddleware('canvasInstalled', EnsureInstalled::class);
+        $router->aliasMiddleware('canvasNotInstalled', EnsureNotInstalled::class);
+        $router->aliasMiddleware('checkForMaintenanceMode', CheckForMaintenanceMode::class);
     }
 
     /**

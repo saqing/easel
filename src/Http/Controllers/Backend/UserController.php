@@ -49,7 +49,7 @@ class UserController extends Controller
         $user->password = bcrypt($request->password);
         $user->save();
 
-        Session::set('_new-user', trans('canvas::messages.create_success', ['entity' => 'user']));
+        Session::put('_new-user', trans('canvas::messages.create_success', ['entity' => 'user']));
 
         return redirect()->route('canvas.admin.user.index');
     }
@@ -82,7 +82,7 @@ class UserController extends Controller
         $data->fill($request->toArray())->save();
         $data->save();
 
-        Session::set('_updateUser', trans('canvas::messages.update_success', ['entity' => 'User']));
+        Session::put('_updateUser', trans('canvas::messages.update_success', ['entity' => 'User']));
 
         return redirect()->route('canvas.admin.user.edit', compact('data'));
     }
@@ -113,7 +113,7 @@ class UserController extends Controller
     {
         User::where('id', $id)->update(['password' => bcrypt($request->new_password)]);
 
-        Session::set('_updatePassword', trans('canvas::messages.update_success', ['entity' => 'Password']));
+        Session::put('_updatePassword', trans('canvas::messages.update_success', ['entity' => 'Password']));
 
         return redirect()->route('canvas.admin.user.edit', $id);
     }
@@ -137,7 +137,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);
         $user->delete();
 
-        Session::set('_delete-user', trans('canvas::messages.delete_success', ['entity' => 'User']));
+        Session::put('_delete-user', trans('canvas::messages.delete_success', ['entity' => 'User']));
 
         return redirect()->route('canvas.admin.user.index');
     }

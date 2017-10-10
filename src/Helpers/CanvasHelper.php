@@ -36,7 +36,7 @@ class CanvasHelper extends Constants
         self::getLatestVersion();
 
         // Set login message.
-        Session::set('_login', trans('canvas::messages.login', ['display_name' => $user->display_name]));
+        Session::put('_login', trans('canvas::messages.login', ['display_name' => $user->display_name]));
     }
 
     /**

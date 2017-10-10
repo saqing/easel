@@ -107,7 +107,7 @@ class SettingsController extends Controller
             Settings::updateOrCreate(['setting_name' => 'changyan_conf'], ['setting_value' => $request->toArray()['changyan_conf']]);
         }
 
-        Session::set('_update-settings', trans('canvas::messages.save_settings_success'));
+        Session::put('_update-settings', trans('canvas::messages.save_settings_success'));
 
         // Update the theme
         $this->themeManager->setActiveTheme($request->toArray()['theme']);

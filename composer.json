@@ -12,24 +12,21 @@
 	],
 	"require": {
 		"php": ">=5.6.4",
-        "doctrine/dbal": "^2.5",
-		"laravel/scout": "2.*",
+		"doctrine/dbal": "^2.5",
+		"laravel/scout": "3.*",
 		"erusev/parsedown": "^1.6",
 		"maatwebsite/excel": "^2.1",
 		"illuminate/support": "5.*",
 		"larapack/config-writer": "^1.0",
 		"talvbansal/media-manager": "^2.5",
 		"barryvdh/laravel-ide-helper": "^2.3",
-		"teamtnt/laravel-scout-tntsearch-driver": "2.*"
+		"teamtnt/laravel-scout-tntsearch-driver": "3.*"
 	},
 	"require-dev": {
 		"mockery/mockery": "0.9.*",
 		"fzaninotto/faker": "~1.4",
 		"symfony/dom-crawler": "~3.0",
 		"symfony/css-selector": "~3.0"
-	},
-	"suggest": {
-		"cnvs/paper-dark": "Official dark theme for Canvas."
 	},
 	"autoload": {
 		"classmap": [
@@ -38,5 +35,11 @@
 		"psr-4": {
 			"Canvas\\": "src/"
 		}
-	}
+	},
+	"suggest": {
+		"cnvs/paper-dark": "Official dark theme for Canvas (~1.0)."
+	},
+	"config": {
+        "sort-packages": true
+    }
 }

@@ -50,7 +50,7 @@ class ProfileController extends Controller
         $user->fill($request->toArray())->save();
         $user->save();
 
-        Session::set('_profile', trans('canvas::messages.update_success', ['entity' => 'Profile']));
+        Session::put('_profile', trans('canvas::messages.update_success', ['entity' => 'Profile']));
 
         return redirect()->route('canvas.admin.profile.index');
     }

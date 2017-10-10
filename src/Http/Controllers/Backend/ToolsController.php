@@ -50,9 +50,9 @@ class ToolsController extends Controller
         $exitCode = Artisan::call('route:clear');
         $exitCode = Artisan::call('optimize');
         if ($exitCode === 0) {
-            Session::set('_cache-clear', trans('canvas::messages.cache_clear_success'));
+            Session::put('_cache-clear', trans('canvas::messages.cache_clear_success'));
         } else {
-            Session::set('_cache-clear', trans('canvas::messages.cache_clear_error'));
+            Session::put('_cache-clear', trans('canvas::messages.cache_clear_error'));
         }
 
         return redirect()->route('canvas.admin.tools');
@@ -214,10 +214,10 @@ class ToolsController extends Controller
     {
         $exitCode = Artisan::call('down');
         if ($exitCode === 0) {
-            Session::set('admin_ip', request()->ip());
-            Session::set('_enable-maintenance-mode', trans('canvas::messages.enable_maintenance_mode_success'));
+            Session::put('admin_ip', request()->ip());
+            Session::put('_enable-maintenance-mode', trans('canvas::messages.enable_maintenance_mode_success'));
         } else {
-            Session::set('_enable-maintenance-mode', trans('canvas::messages.enable_maintenance_mode_error'));
+            Session::put('_enable-maintenance-mode', trans('canvas::messages.enable_maintenance_mode_error'));
         }
 
         return redirect()->route('canvas.admin.tools');
@@ -232,9 +232,9 @@ class ToolsController extends Controller
     {
         $exitCode = Artisan::call('up');
         if ($exitCode === 0) {
-            Session::set('_disable-maintenance-mode', trans('canvas::messages.disable_maintenance_mode_success'));
+            Session::put('_disable-maintenance-mode', trans('canvas::messages.disable_maintenance_mode_success'));
         } else {
-            Session::set('_disable-maintenance-mode', trans('canvas::messages.disable_maintenance_mode_error'));
+            Session::put('_disable-maintenance-mode', trans('canvas::messages.disable_maintenance_mode_error'));
         }
 
         return redirect()->route('canvas.admin.tools');

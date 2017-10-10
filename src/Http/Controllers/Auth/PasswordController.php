@@ -44,7 +44,7 @@ class PasswordController extends Controller
         $user->password = bcrypt($request->input('new_password'));
         $user->save();
 
-        Session::set('_passwordUpdate', trans('canvas::messages.update_success', ['entity' => 'Your password']));
+        Session::put('_passwordUpdate', trans('canvas::messages.update_success', ['entity' => 'Your password']));
 
         return back();
     }

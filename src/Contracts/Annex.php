@@ -10,7 +10,7 @@ interface Annex
     /**
      * Dot notation getter for composer.json attributes.
      *
-     * @see https://laravel.com/docs/5.1/helpers#arrays
+     * @see https://laravel.com/docs/5.4/helpers#arrays
      *
      * @param $name
      * @return mixed

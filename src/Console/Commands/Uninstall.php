@@ -54,6 +54,8 @@ class Uninstall extends CanvasCommand
                 $this->removeIndexes();
                 $this->comment('Removing the installation file...');
                 $this->removeInstalledFile();
+                $this->comment('Removing the configuration file...');
+                $this->removeConfigFile();
                 $this->comment('Finishing up the uninstall process...');
                 $this->clearAllCaches();
 
@@ -124,6 +126,13 @@ class Uninstall extends CanvasCommand
     {
         if (file_exists(storage_path(CanvasHelper::INSTALLED_FILE))) {
             unlink(storage_path(CanvasHelper::INSTALLED_FILE));
+        }
+    }
+
+    protected function removeConfigFile()
+    {
+        if (file_exists('/config/blog.php')) {
+            unlink('/config/blog.php');
         }
     }
 
