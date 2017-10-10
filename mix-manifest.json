@@ -1,0 +1,8 @@
+{
+    "/public/assets/css/frontend.css": "/public/assets/css/frontend.css",
+    "/public/assets/css/backend.css": "/public/assets/css/backend.css",
+    "/public/assets/css/media-manager.css": "/public/assets/css/media-manager.css",
+    "/public/assets/js/frontend.js": "/public/assets/js/frontend.js",
+    "/public/assets/js/vendor.js": "/public/assets/js/vendor.js",
+    "/public/assets/js/app.js": "/public/assets/js/app.js"
+}
