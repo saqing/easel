@@ -54,6 +54,19 @@
 
     <div class="form-group">
         <div class="fg-line">
+            <label class="fg-label">Publish Posts by Default?</label>
+            <select name="post_is_published_default" id="post_is_published_default" class="selectpicker">
+                <option value="1" {{ \Canvas\Helpers\CanvasHelper::selected($data['postIsPublishedDefault']) }}>Yes</option>
+                <option value="0" {{ \Canvas\Helpers\CanvasHelper::selected(!$data['postIsPublishedDefault']) }}>No</option>
+            </select>
+        </div>
+        <small>When this option is checked, new posts will be created with the <code>published</code> status by default, rather than <code>draft</code>.</small>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <div class="fg-line">
             <label class="fg-label">Social Header Icons</label>
             <select name="social_header_icons_user_id" id="social_header_icons_user_id" class="selectpicker">
                 @foreach (\Canvas\Models\User::all() as $user)

@@ -108,7 +108,7 @@ class SettingsController extends Controller
         if ($request->exists('post_is_published_default')) {
             $this->saveSetting(
                 'post_is_published_default',
-                $request->input('post_is_published_default') === 'yes'
+                filter_var($request->input('post_is_published_default'), FILTER_VALIDATE_BOOLEAN)
             );
         }
 
