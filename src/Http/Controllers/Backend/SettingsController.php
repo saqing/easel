@@ -39,6 +39,7 @@ class SettingsController extends Controller
             'blogDescription' => Settings::blogDescription(),
             'blogSeo' => Settings::blogSeo(),
             'blogAuthor' => Settings::blogAuthor(),
+            'postIsPublishedDefault' => Settings::postIsPublishedDefault(),
             'disqus' => Settings::disqus(),
             'changyan_appid' => Settings::changyanAppid(),
             'changyan_conf' => Settings::changyanConf(),
@@ -102,6 +103,13 @@ class SettingsController extends Controller
 
         foreach ($settings as $name) {
             $this->saveSettingFromRequest($request, $name);
+        }
+
+        if ($request->exists('post_is_published_default')) {
+            $this->saveSetting(
+                'post_is_published_default',
+                $request->input('post_is_published_default') === 'yes'
+            );
         }
 
         if ($request->exists('disqus_name')) {

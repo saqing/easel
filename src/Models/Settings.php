@@ -80,6 +80,16 @@ class Settings extends Model
     }
 
     /**
+     * Get the 'post is published by default' setting value.
+     *
+     * @return @string
+     */
+    public static function postIsPublishedDefault($fallback = true)
+    {
+        return static::getByName('post_is_published_default', true);
+    }
+
+    /**
      * Get the current Canvas application version.
      *
      * return @string
