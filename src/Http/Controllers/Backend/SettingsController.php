@@ -87,31 +87,61 @@ class SettingsController extends Controller
      */
     public function store(SettingsUpdateRequest $request)
     {
-        Settings::updateOrCreate(['setting_name' => 'blog_title'], ['setting_value' => $request->toArray()['blog_title']]);
-        Settings::updateOrCreate(['setting_name' => 'blog_subtitle'], ['setting_value' => $request->toArray()['blog_subtitle']]);
-        Settings::updateOrCreate(['setting_name' => 'blog_description'], ['setting_value' => $request->toArray()['blog_description']]);
-        Settings::updateOrCreate(['setting_name' => 'blog_seo'], ['setting_value' => $request->toArray()['blog_seo']]);
-        Settings::updateOrCreate(['setting_name' => 'blog_author'], ['setting_value' => $request->toArray()['blog_author']]);
-        Settings::updateOrCreate(['setting_name' => 'ga_id'], ['setting_value' => $request->toArray()['ga_id']]);
-        Settings::updateOrCreate(['setting_name' => 'twitter_card_type'], ['setting_value' => $request->toArray()['twitter_card_type']]);
-        Settings::updateOrCreate(['setting_name' => 'custom_css'], ['setting_value' => $request->toArray()['custom_css']]);
-        Settings::updateOrCreate(['setting_name' => 'custom_js'], ['setting_value' => $request->toArray()['custom_js']]);
-        Settings::updateOrCreate(['setting_name' => 'social_header_icons_user_id'], ['setting_value' => $request->toArray()['social_header_icons_user_id']]);
+        $settings = [
+            'blog_title',
+            'blog_subtitle',
+            'blog_description',
+            'blog_seo',
+            'blog_author',
+            'ga_id',
+            'twitter_card_type',
+            'custom_css',
+            'custom_js',
+            'social_header_icons_user_id',
+        ];
 
-        if (isset($request->toArray()['disqus_name'])) {
-            Settings::updateOrCreate(['setting_name' => 'disqus_name'], ['setting_value' => $request->toArray()['disqus_name']]);
+        foreach ($settings as $name) {
+            $this->saveSettingFromRequest($request, $name);
         }
 
-        if (isset($request->toArray()['changyan_appid']) || isset($request->toArray()['changyan_conf'])) {
-            Settings::updateOrCreate(['setting_name' => 'changyan_appid'], ['setting_value' => $request->toArray()['changyan_appid']]);
-            Settings::updateOrCreate(['setting_name' => 'changyan_conf'], ['setting_value' => $request->toArray()['changyan_conf']]);
+        if ($request->exists('disqus_name')) {
+            $this->saveSettingFromRequest($request, 'disqus_name');
+        }
+
+        if ($request->exists('changyan_appid') || $request->exists('changyan_conf')) {
+            $this->saveSettingFromRequest($request, 'changyan_appid');
+            $this->saveSettingFromRequest($request, 'changyan_conf');
         }
 
         Session::put('_update-settings', trans('canvas::messages.save_settings_success'));
 
         // Update the theme
-        $this->themeManager->setActiveTheme($request->toArray()['theme']);
+        $this->themeManager->setActiveTheme($request->input('theme'));
 
         return redirect()->route('canvas.admin.settings');
+    }
+
+    /**
+     * Creates or updates a given setting.
+     *
+     * @param  string $name  Setting name
+     * @param  string $value Setting value
+     * @return void
+     */
+    protected function saveSetting($name, $value)
+    {
+        Settings::updateOrCreate(['setting_name' => $name], ['setting_value' => $value]);
+    }
+
+    /**
+     * Creates or updates a given setting, based in data from the request.
+     *
+     * @param  SettingsUpdateRequest $request Request object
+     * @param  string                $name    Setting name
+     * @return void
+     */
+    protected function saveSettingFromRequest(SettingsUpdateRequest $request, $name)
+    {
+        $this->saveSetting($name, $request->input($name));
     }
 }
