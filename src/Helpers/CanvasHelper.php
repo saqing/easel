@@ -26,7 +26,7 @@ class CanvasHelper extends Constants
     /**
      * Convenience method to determine if a given select option should be 'selected'.
      *
-     * @param  boolean $condition If true, return 'checked'
+     * @param  bool $condition If true, return 'checked'
      * @return string
      */
     public static function selected($condition)
