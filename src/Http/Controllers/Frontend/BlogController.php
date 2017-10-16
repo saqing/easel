@@ -58,4 +58,15 @@ class BlogController extends Controller
 
         return view($post->layout, compact('post', 'tag', 'slug', 'title', 'user', 'css', 'js', 'socialHeaderIconsUser'));
     }
+
+    /**
+     * Permanent redirect from old link to the new one.
+     *
+     * @param $slug
+     * @return \Illuminate\Http\Response
+     */
+    public function handleOldLink($slug)
+    {
+        return redirect()->route('canvas.blog.post.show', ['slug' => $slug], 301);
+    }
 }

@@ -23,6 +23,8 @@ Route::group([
             Route::get('post/{slug}', 'Canvas\Http\Controllers\Frontend\BlogController@showPost')->name('canvas.blog.post.show');
         });
 
+        Route::get('/blog/{slug}', 'Canvas\Http\Controllers\Frontend\BlogController@handleOldLink')->name('canvas.blog.post.handle_old_link');
+
         /* Authentication routes. */
         Route::group([
             'namespace' => 'Canvas\Http\Controllers\Auth',
