@@ -54,13 +54,15 @@
 
     <div class="form-group">
         <div class="fg-line">
-            <label class="fg-label">Publish Posts by Default?</label>
-            <select name="post_is_published_default" id="post_is_published_default" class="selectpicker">
-                <option value="1" {{ \Canvas\Helpers\CanvasHelper::selected($data['postIsPublishedDefault']) }}>Yes</option>
-                <option value="0" {{ \Canvas\Helpers\CanvasHelper::selected(!$data['postIsPublishedDefault']) }}>No</option>
-            </select>
+            <label class="ts-label" for="post_is_published_default">Publish Posts by Default?</label>
+            <div>
+                <div class="toggle-switch toggle-switch-demo" data-ts-color="blue">
+                    <input {{ \Canvas\Helpers\CanvasHelper::checked($data['postIsPublishedDefault']) }} type="checkbox" name="post_is_published_default">
+                    <label for="post_is_published_default" class="ts-helper"></label>
+                </div>
+            </div>
+            <small>When this option is checked, new posts will be created with the <code>published</code> status by default, rather than <code>draft</code>.</small>
         </div>
-        <small>When this option is checked, new posts will be created with the <code>published</code> status by default, rather than <code>draft</code>.</small>
     </div>
 
     <br>

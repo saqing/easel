@@ -99,17 +99,11 @@ class SettingsController extends Controller
             'custom_css',
             'custom_js',
             'social_header_icons_user_id',
+            'post_is_published_default',
         ];
 
         foreach ($settings as $name) {
             $this->saveSettingFromRequest($request, $name);
-        }
-
-        if ($request->exists('post_is_published_default')) {
-            $this->saveSetting(
-                'post_is_published_default',
-                filter_var($request->input('post_is_published_default'), FILTER_VALIDATE_BOOLEAN)
-            );
         }
 
         if ($request->exists('disqus_name')) {

@@ -82,7 +82,7 @@ class Settings extends Model
     /**
      * Get the 'post is published by default' setting value.
      *
-     * @return @string
+     * @return @bool
      */
     public static function postIsPublishedDefault($fallback = true)
     {

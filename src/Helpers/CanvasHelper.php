@@ -24,17 +24,6 @@ class CanvasHelper extends Constants
     }
 
     /**
-     * Convenience method to determine if a given select option should be 'selected'.
-     *
-     * @param  bool $condition If true, return 'checked'
-     * @return string
-     */
-    public static function selected($condition)
-    {
-        return $condition ? 'selected' : '';
-    }
-
-    /**
      * Actions to be taken when user is successfully authenticated.
      *
      * @param Request $request
