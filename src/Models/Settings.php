@@ -49,7 +49,7 @@ class Settings extends Model
             static::cache();
         }
 
-        if ( ! array_key_exists($settingName, static::$cachedRows)) {
+        if (! array_key_exists($settingName, static::$cachedRows)) {
             return $fallback;
         }
 
@@ -65,8 +65,7 @@ class Settings extends Model
     {
         static::$cachedRows = static::query()
             ->pluck('setting_value', 'setting_name')
-            ->toArray()
-        ;
+            ->toArray();
     }
 
     /**
