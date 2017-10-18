@@ -30,6 +30,46 @@ class Settings extends Model
     public $timestamps = false;
 
     /**
+     * Cached Settings data.
+     * Key = setting name, value = setting value.
+     * @var array
+     */
+    protected static $cachedRows;
+
+    /**
+     * Get the value settings by name.
+     *
+     * @param  string $settingName Name of setting
+     * @param  string $fallback Fallback if the setting does not exist
+     * @return string
+     */
+    public static function getByName($settingName, $fallback = null)
+    {
+        if (static::$cachedRows === null) {
+            static::cache();
+        }
+
+        if ( ! array_key_exists($settingName, static::$cachedRows)) {
+            return $fallback;
+        }
+
+        return static::$cachedRows[$settingName];
+    }
+
+    /**
+     * Cache the Settings values to a simple array.
+     *
+     * @return void
+     */
+    protected static function cache()
+    {
+        static::$cachedRows = static::query()
+            ->pluck('setting_value', 'setting_name')
+            ->toArray()
+        ;
+    }
+
+    /**
      * Get the value of the Blog Title.
      *
      * return @string
@@ -156,24 +196,6 @@ class Settings extends Model
     public static function gaId()
     {
         return static::getByName('ga_id');
-    }
-
-    /**
-     * Get the value settings by name.
-     *
-     * @param  string $settingName Name of setting
-     * @param  string $fallback Fallback if the setting does not exist
-     * @return string
-     */
-    public static function getByName($settingName, $fallback = null)
-    {
-        $setting = static::where('setting_name', $settingName)->first();
-
-        if ($setting === null) {
-            return $fallback;
-        }
-
-        return $setting->setting_value;
     }
 
     /**
