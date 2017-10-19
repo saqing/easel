@@ -54,6 +54,21 @@
 
     <div class="form-group">
         <div class="fg-line">
+            <label class="ts-label" for="post_is_published_default">Publish Posts by Default?</label>
+            <div>
+                <div class="toggle-switch toggle-switch-demo" data-ts-color="blue">
+                    <input {{ \Canvas\Helpers\CanvasHelper::checked($data['postIsPublishedDefault']) }} type="checkbox" name="post_is_published_default">
+                    <label for="post_is_published_default" class="ts-helper"></label>
+                </div>
+            </div>
+            <small>When this option is checked, new posts will be created with the <code>published</code> status by default, rather than <code>draft</code>.</small>
+        </div>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <div class="fg-line">
             <label class="fg-label">Social Header Icons</label>
             <select name="social_header_icons_user_id" id="social_header_icons_user_id" class="selectpicker">
                 @foreach (\Canvas\Models\User::all() as $user)

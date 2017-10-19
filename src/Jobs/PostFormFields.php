@@ -5,6 +5,7 @@ namespace Canvas\Jobs;
 use Carbon\Carbon;
 use Canvas\Models\Tag;
 use Canvas\Models\Post;
+use Canvas\Models\Settings;
 use Illuminate\Queue\SerializesModels;
 
 /**
@@ -52,6 +53,7 @@ class PostFormFields
     {
         $this->id = $id;
         $this->fieldList['layout'] = config('blog.post_layout');
+        $this->fieldList['is_published'] = Settings::postIsPublishedDefault();
     }
 
     /**
