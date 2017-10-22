@@ -1,0 +1,41 @@
+// Brand
+$brand-primary: rgb(253, 103, 105);
+$red: rgb(253, 103, 105);
+$red-light: rgba(253, 103, 105, .5);
+$gray: rgb(82, 82, 82);
+$gray-dark: rgb(68, 68, 68);
+$gray-muted: rgb(128, 128, 128);
+$white-faded: rgb(153, 153, 153);
+$pre-background: rgb(246, 246, 246);
+
+// Mixins
+@mixin transition-all() {
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+@mixin background-cover() {
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+}
+
+@mixin serif() {
+  font-family: 'Lora', 'Times New Roman', serif;
+}
+
+@mixin sans-serif() {
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+// Typography
+@font-face {
+  font-family: 'Unthrift First Personal';
+  src: url('/vendor/canvas/assets/fonts/unthriftfirstpersonal.eot'); /* IE9 Compat Modes */
+  src: url('/vendor/canvas/assets/fonts/unthriftfirstpersonal.woff2') format('woff2'), /* Super Modern Browsers */
+  url('/vendor/canvas/assets/fonts/unthriftfirstpersonal.woff') format('woff'), /* Pretty Modern Browsers */
+  url('/vendor/canvas/assets/fonts/unthriftfirstpersonal.ttf') format('truetype'), /* Safari, Android, iOS */
+  url('/vendor/canvas/assets/fonts/unthriftfirstpersonal.svg') format('svg'); /* Legacy iOS */
+}

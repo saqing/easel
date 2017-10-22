@@ -1,0 +1,12 @@
+.help-block-error, [class*="error"].help-block, .error-help-block {display: none !important;}
+
+.breadcrumb {padding-left: 0px !important;}
+
+.dropdown-menu {z-index: 15;}
+
+input#layout:disabled {
+  color: black !important;
+  background-color: rgb(255, 255, 255) !important;
+}
+
+.pd-r-5 {padding-right: 5px !important;}
